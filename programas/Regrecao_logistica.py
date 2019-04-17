@@ -14,9 +14,9 @@ class LMSTrainer():
         self._alpha = alpha  # taxa de convergencias
         self._tolerancia = tolerancia  # erro maximo
         self._custoAnt = 0.0  # quarda o custo da iteracao anterior
-        self._max = 5000  # quantidade maxima de iteracoes
+        self._max = 999999  # quantidade maxima de iteracoes
         self._it = 0  # iteracao atual
-        self._epslon = 0.0000000000000001
+        self._epslon = 0.000001
 
     def fit(self, X, y=None):
         if self.analitic:
@@ -40,7 +40,7 @@ class LMSTrainer():
     def h(self, x):
         #if type(x) is int:
         #   x = [1, x]
-        return 1. / (1. + math.e ** (np.dot(self._delta, x)))
+        return 1. / (1. + math.e ** -(np.dot(self._delta, x)))
         # if type(x) is int:
         #    return self.funcAfim(x)
         # else:

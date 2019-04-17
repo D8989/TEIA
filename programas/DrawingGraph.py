@@ -10,11 +10,13 @@ class DrawingGraph:
 
     @staticmethod
     def draw(x, f, title): # valores x e função f
+        plt.figure(DrawingGraph.Id)
+        DrawingGraph.Id += 1
         plt.plot(x, [f(a) for a in x])
         plt.title(title)
-        plt.show()
-    
-    @staticmethod
+        # plt.show()
+
+
     def draw_point2(x, y):
         plt.scatter(x, y, s=10, c='b')
         plt.show()
@@ -35,9 +37,9 @@ class DrawingGraph:
             else:
                 temp1y += [yi]
                 temp1x += [x[i]]
-        plt.axis((x[0][0]-1, x[-1][0]+1, -0.5, 1.5))
-        plt.scatter(temp0x, temp0y, s=60, c='r')
-        plt.scatter(temp1x, temp1y, s=60, c='b')
+        plt.axis((min(x)[0]-1, max(x)[0]+1, -0.5, 1.5))
+        plt.scatter(temp0x, temp0y, s=50, c='r')
+        plt.scatter(temp1x, temp1y, s=50, c='b')
         #plt.show()
 
     @staticmethod
